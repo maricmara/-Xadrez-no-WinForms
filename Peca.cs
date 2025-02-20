@@ -1,12 +1,13 @@
-public class Peca
-   {
-       public EnumCor Cor { get; set; }
-       public int Linha { get; set; }
-       public int Coluna { get; set; }
+public abstract class Peca
+{
+    public string Cor { get; set; }
+    public (int linha, int coluna) Posicao { get; set; }
 
-       public virtual bool MovimentoValido(int novaLinha, int novaColuna)
-       {
-           // Lógica básica para validação de movimento
-           return true;
-       }
-   }
+    public Peca(string cor, int linha, int coluna)
+    {
+        Cor = cor;
+        Posicao = (linha, coluna);
+    }
+
+    public abstract bool MovimentoValido(int novaLinha, int novaColuna);
+}
